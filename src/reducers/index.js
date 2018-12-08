@@ -3,4 +3,4 @@ import attacksReducer from './attacksReducer';
 
 export default combineReducers({
     attacks: attacksReducer
-}
+})
