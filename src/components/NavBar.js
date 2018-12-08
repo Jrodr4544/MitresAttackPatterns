@@ -1,13 +1,35 @@
 import React from 'react';
-
+import { Navbar, Nav, NavItem } from 'react-bootstrap'; 
 
 const NavBar = () => {
     return (
-        <div>
-            <p>NAVBAR</p>
-            {/* Add other links here. May need to use router and routes from module */}
+<Navbar inverse collapseOnSelect>
+  <Navbar.Header>
+    <Navbar.Brand>
+      <a href="#brand">NAVBAR React-Bootstrap</a>
+    </Navbar.Brand>
+    <Navbar.Toggle />
+  </Navbar.Header>
+  <Navbar.Collapse>
+    <Nav>
+      <NavItem eventKey={1} href="#">
+        Link
+      </NavItem>
+      <NavItem eventKey={2} href="#">
+        Link
+      </NavItem>
+    </Nav>
+    <Nav pullRight>
+      <NavItem eventKey={1} href="#">
+        About
+      </NavItem>
+      {/*<NavItem eventKey={2} href="#">
+        Link Right
+    </NavItem>*/}
+    </Nav>
+  </Navbar.Collapse>
+</Navbar>
 
-        </div>
     )
 }
 

@@ -10,11 +10,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="navbar">
-          <p>NavBar</p>
           <NavBar />
-        </div>
-
 
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
