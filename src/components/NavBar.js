@@ -16,15 +16,20 @@ const NavBar = () => {
   </Navbar.Header>
   <Navbar.Collapse>
     <Nav>
-      <NavItem eventKey={1} href="#">
-        <NavLink> Attacks </NavLink>
+      <NavItem eventKey={1} >
+        <NavLink
+           style={{ marginRight: '10px' }} 
+           to="/attacks"
+        > 
+          Attacks 
+        </NavLink>
       </NavItem>
-      <NavItem eventKey={2} href="#">
+      <NavItem eventKey={2} >
         Link
       </NavItem>
     </Nav>
     <Nav pullRight>
-      <NavItem eventKey={1} href="#">
+      <NavItem eventKey={1} >
         <NavLink
           style={{ marginRight: '10px' }} 
           to="/about"
