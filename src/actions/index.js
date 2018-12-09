@@ -220,3 +220,8 @@ export const fetchAttackPatterns = () => {
     debugger
     return {type: 'FETCH_ATTACK_PATTERNS', attackPatterns}
 }
+
+export const filterAttackPatterns = (query) => {
+debugger
+    return {type: 'FILTER_ATTACK_PATTERNS', query}
+}
