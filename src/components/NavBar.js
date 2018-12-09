@@ -1,8 +1,12 @@
 import React from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap'; 
+import { NavLink } from 'react-router-dom';
+
 
 const NavBar = () => {
+
     return (
+
 <Navbar inverse collapseOnSelect>
   <Navbar.Header>
     <Navbar.Brand>
@@ -13,7 +17,7 @@ const NavBar = () => {
   <Navbar.Collapse>
     <Nav>
       <NavItem eventKey={1} href="#">
-        Link
+        <NavLink> Attacks </NavLink>
       </NavItem>
       <NavItem eventKey={2} href="#">
         Link
@@ -21,7 +25,12 @@ const NavBar = () => {
     </Nav>
     <Nav pullRight>
       <NavItem eventKey={1} href="#">
-        About
+        <NavLink
+          style={{ marginRight: '10px' }} 
+          to="/about"
+        > 
+          About 
+        </NavLink>
       </NavItem>
       {/*<NavItem eventKey={2} href="#">
         Link Right
