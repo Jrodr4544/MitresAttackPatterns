@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import attacksReducer from './attacksReducer';
+import attacksReducer from './attacksReducers';
 
 export default combineReducers({
     attacks: attacksReducer
