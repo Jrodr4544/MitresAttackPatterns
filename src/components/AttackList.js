@@ -1,13 +1,18 @@
-import React from 'react'; 
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const AttackList = ({ attackPatterns }) => {
-    const renderAttacks;
+const AttacksList = ({ attacks }) => {
+    {/* AttackPatterns will be rendered here */}
+  const renderAttacks = attacks.map(attack => 
+    <Link style={{ marginRight: '12px' }} key={attack.id} to={`/attacks/${attack.id}`}>{attack.name}</Link>
+  );
+  
+  return (
+    <div>
+        <h1> Attacks List </h1>
+      {renderAttacks}
+    </div>
+  );
+};
 
-    return (
-        <div>
-            <h1>AttackList</h1>
-        </div>
-    );
-}
-
-export default AttackList;
+export default AttacksList;
