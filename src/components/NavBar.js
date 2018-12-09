@@ -10,7 +10,7 @@ const NavBar = () => {
 <Navbar inverse collapseOnSelect>
   <Navbar.Header>
     <Navbar.Brand>
-      <a href="#brand">NAVBAR React-Bootstrap</a>
+      Mitre's Att&ck Patterns
     </Navbar.Brand>
     <Navbar.Toggle />
   </Navbar.Header>
