@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { filterAttackPatterns } from '../actions';
+import { FormGroup, InputGroup, FormControl, Button } from 'react-bootstrap';
 
 class AttacksFilter extends Component {
   constructor(props) {
@@ -32,30 +33,16 @@ class AttacksFilter extends Component {
     return (
       <div>
         <h2>Filter Attack Patterns</h2>
+
         <form onSubmit={this.handleOnSubmit} >
-        {/* 
             <FormGroup>
-    <InputGroup>
-      <InputGroup.Button>
-        <Button>Before</Button>
-      </InputGroup.Button>
-      <FormControl type="text" />
-    </InputGroup>
-  </FormGroup>
-        */}
-          <input
-            type="text"
-            placeholder="Name"
-            name="name"
-            onChange={this.handleOnChange} />
-          <input
-            type="text"
-            placeholder="Description"
-            name="description"
-            onChange={this.handleOnChange} />
-          <input
-            type="submit"
-            value="Filter Attack Paterns" />
+                <InputGroup>
+                    <InputGroup.Button>
+                        <Button type='submit' value="Filter Attack Patterns">Filter Attack Patterns</Button>
+                    </InputGroup.Button>
+                    <FormControl type="text" onChange={this.handleOnChange}/>
+                </InputGroup>
+            </FormGroup>
         </form>
       </div>
     );
