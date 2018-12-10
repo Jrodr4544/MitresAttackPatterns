@@ -27,6 +27,10 @@ div.navbar {
   margin: 5;
 }
 
+.panel-text {
+  text-align: left;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
