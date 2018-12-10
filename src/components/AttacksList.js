@@ -1,18 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { PanelGroup, Panel } from 'react-bootstrap';
 
 const AttacksList = ({ attacks }) => {
     {/* AttackPatterns will be rendered here */}
     debugger
-  //const renderAttacks;
-  // = attacks.map(attack => 
-  //  <Link style={{ marginRight: '12px' }} key={attack.id} to={`/attacks/${attack.id}`}>{attack.name}</Link>
-  //);
+  const renderAttacks = attacks.map( attack => 
+    <PanelGroup accordion id="accordion-example">
+      <Panel eventKey={attack.id}>
+        <Panel.Heading>
+          <Panel.Title toggle>
+            <Link style={{ marginRight: '12px' }} key={attack.id} to={`/attacks/${attack.id}`}>{attack.name}</Link>
+          </Panel.Title>
+        </Panel.Heading>
+        <Panel.Body className='panel-text' collapsible>
+          {attack.description}
+        </Panel.Body>
+      </Panel>
+    </PanelGroup>
+  );
   
   return (
     <div>
-        <h1> Attacks List </h1>
-      {/*renderAttacks*/}
+        {/* Attacks List */}
+      {renderAttacks}
     </div>
   );
 };
