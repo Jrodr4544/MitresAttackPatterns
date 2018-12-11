@@ -24,9 +24,6 @@ const NavBar = () => {
           Attacks 
         </NavLink>
       </NavItem>
-      <NavItem eventKey={2} >
-        Link
-      </NavItem>
     </Nav>
     <Nav pullRight>
       <NavItem eventKey={1} >
