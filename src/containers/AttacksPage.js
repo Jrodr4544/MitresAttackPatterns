@@ -1,41 +1,47 @@
 import React, { Component } from 'react';
-//import { connect } from 'react-redux';
-//import { Route, Switch } from 'react-router-dom';
-//import { fetchPets } from '../actions';
-//import PetsNew from './PetsNew';
-//import PetsShow from './PetsShow';
-//import PetsList from '../components/PetsList';
+import { connect } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
+import { fetchAttackPatterns } from '../actions/index';
+//import AttacksNew from './PetsNew';
+import AttacksShow from '../components/AttacksShow';
+import AttacksList from '../components/AttacksList';
+import AttacksFilter from './AttacksFilter'
 
+import logo from '../mitre_attack.png'
 
 class AttacksPage extends Component {
 
   componentDidMount() {
+      debugger
     this.props.fetchAttackPatterns()
   }
 
   render() {
-    const { match, attacks } = this.props;
+      debugger
+    const { match, attackPatterns } = this.props;
 
     return (
      <div>
-      <div>Attacks Page</div>
-      <AttackList attacks={ attacks } />
-      <Switch> {/* Make sure to wrap all of your Routes as children of the Switch component*/ }
-        <Route path={`${match.url}/new`} component={PetsNew} />
-        <Route path={`${match.url}/:attackId`} component={AttacksShow}/>
+      {/* Attacks Page */}
+      <AttacksFilter />
+       <Switch>  {/* Make sure to wrap all of your Routes as children of the Switch component*/ }
+         <Route exact path={match.url} render={() => ( 
+           <h3>Select an Attack from the list.</h3> 
+         )}/> 
+         <Route path={`${match.url}/:attackId`} component={AttacksShow}/> 
 
-        <Route exact path={match.url} render={() => (
-          <h3>Please select a Pet from the list.</h3>
-        )}/>
-      </Switch>
+       </Switch> 
+
+      <AttacksList attacks={ attackPatterns } />
      </div>
     )
   }
 };
 
 const mapStateToProps = state => {
+    debugger
   return {
-    attacks: state.attackPatterns
+    attackPatterns: state.attackPatterns
   };
 }
 
