@@ -218,10 +218,26 @@ var attackPatterns =
 
 export const fetchAttackPatterns = () => {
     debugger
-    return {type: 'FETCH_ATTACK_PATTERNS', attackPatterns}
+    return { type: 'FETCH_ATTACK_PATTERNS', attackPatterns }
 }
 
+export const fetchFilters = () => {
+    let filters = {};
+       filters.platforms = attackPatterns.objects.map( attack => attack.x_mitre_platforms ).flat().reduce((result,nextItem) => result.includes(nextItem) ? result : result.concat(nextItem),[]);
+       filters.data_sources = attackPatterns.objects.map( attack => attack.x_mitre_data_sources ).flat().reduce((result,nextItem) => result.includes(nextItem) ? result : result.concat(nextItem),[])
+debugger
+
+    return { type: 'FETCH_FILTERS', filters }
+}
+
+//export const filterAttackPatterns = (query) => 
 export const filterAttackPatterns = (query) => {
 debugger
-    return {type: 'FILTER_ATTACK_PATTERNS', query}
+    const filterType = Object.keys(query)[0];
+
+    if (filterType === 'datasourceFilter') {
+        return { type: 'FILTER_ON_DATASOURCE', payload: query }
+    } else {
+        return { type: 'FILTER_ON_PLATFORM', payload: query }
+    }
 }
