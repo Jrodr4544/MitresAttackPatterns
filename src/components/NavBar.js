@@ -17,22 +17,22 @@ const NavBar = () => {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavItem>
-              <NavLink
-                to="/attacks"
-              > 
-                Attacks 
-              </NavLink>
-            </NavItem>
+              <Navbar.Brand>
+                <NavLink
+                  to="/attacks"
+                >
+                  Attacks 
+                </NavLink>
+              </Navbar.Brand>
           </Nav>
           <Nav pullRight>
-            <NavItem>
-              <NavLink
-                to="/about"
-              > 
-                About 
-              </NavLink>
-            </NavItem>
+            <Navbar.Brand>
+                <NavLink
+                  to="/about"
+                > 
+                  About 
+                </NavLink>
+            </Navbar.Brand>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
