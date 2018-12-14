@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import attacksReducer from './attacksReducers';
+import attacksReducer from './attacksReducer';
+import filterReducer from './filterReducer';
 
 export default combineReducers({
-    attacks: attacksReducer
+    attackPatterns: attacksReducer,
+    filters: filterReducer
 })
