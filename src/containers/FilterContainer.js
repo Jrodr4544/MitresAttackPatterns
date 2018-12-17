@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchFilters, fetchAttackPatterns, filterAttackPatterns } from '../actions';
+import { fetchFilters, fetchAttackPatterns } from '../actions';
 import { connect } from 'react-redux';
 import { FormGroup, InputGroup, FormControl, Button } from 'react-bootstrap';
 import AttacksList from '../components/AttacksList';
@@ -11,8 +11,7 @@ class FilterContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      description: '',
+      inputFilter: '',
       datasourceFilter: 'all',
       platformFilter: 'all'
     };
@@ -27,9 +26,6 @@ class FilterContainer extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
     debugger
-//    filterAttackPatterns(this.state); 
-// This should filter the current attackPatterns 
-// based on input
   }
 
   handleOnFilterChange = event => {
@@ -39,18 +35,26 @@ class FilterContainer extends Component {
     });
   }
 
+  handleInputChange = event => {
+    debugger
+    this.setState({
+      ...this.state,
+      inputFilter: event.target.value
+    });
+  }
+
   render() {
     debugger
 
     return (
       <div>
-        <form onSubmit={this.handleOnSubmit} >
+        <form> {/* onSubmit={this.handleOnSubmit} > */}
           <FormGroup>
               <InputGroup>
                   <InputGroup.Button>
                       <Button type='submit' value="Filter Attack Patterns">Filter Attack Patterns</Button>
                   </InputGroup.Button>
-                  <FormControl name="name" type="text" onChange={this.handleOnChange}/>
+                  <FormControl name='inputFilter' value={this.state.inputFilter} type="text" onChange={this.handleInputChange}/>
               </InputGroup>
           </FormGroup>
         </form>
@@ -70,7 +74,7 @@ class FilterContainer extends Component {
           )}
             <br></br>
 
-        <AttacksList datasourceFilter={this.state.datasourceFilter} platformFilter={this.state.platformFilter} attacks={ this.props.attackPatterns } />
+        <AttacksList textFilter={this.state.inputFilter} datasourceFilter={this.state.datasourceFilter} platformFilter={this.state.platformFilter} attacks={ this.props.attackPatterns } />
 
       </div>
     );
@@ -79,12 +83,10 @@ class FilterContainer extends Component {
 
 const mapStateToProps = state => {
  debugger
- //this.setState({ filteredAttackPatterns: state.attackPatterns })
-
  return {
   attackPatterns: state.attackPatterns,
   filters: state.filters
  };
 }
 
-export default connect(mapStateToProps, { fetchFilters, fetchAttackPatterns, filterAttackPatterns })(FilterContainer);
+export default connect(mapStateToProps, { fetchFilters, fetchAttackPatterns })(FilterContainer);
