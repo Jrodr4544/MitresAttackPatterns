@@ -3,11 +3,17 @@ import { Link } from 'react-router-dom';
 import { PanelGroup, Panel } from 'react-bootstrap';
 
 
-const AttacksList = ({ attacks, datasourceFilter, platformFilter }) => {
+const AttacksList = ({ attacks, datasourceFilter, platformFilter, textFilter }) => {
     {/* AttackPatterns will be rendered here */}
     debugger
 
   let attackPatterns = attacks;
+  
+  if ( textFilter ) {
+    attackPatterns = attackPatterns.filter (
+      attack => Object.values(attack).flat().join('').includes(textFilter)
+    )
+  }
 
   if ( datasourceFilter !== 'all') {
     attackPatterns = attackPatterns.filter( attack => attack.x_mitre_data_sources.includes(datasourceFilter));
