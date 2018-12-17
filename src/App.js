@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { 
   BrowserRouter as Router, 
-  Route 
+  Route
 } from 'react-router-dom';
 
 import NavBar from './components/NavBar';
@@ -17,16 +17,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      
         <Router>
           <div>
-            <NavBar />
+              <NavBar />
+              <Route path='/attacks' component={AttacksPage}/>
+              <Route path='/about' component={About}/>
               <Route exact path="/" render={() => (
                 <div className="App-welcome"><h1>Welcome</h1></div>
               )}/>
-              <Route path='/attacks' component={AttacksPage}/>
-              <Route path='/about' component={About}/>
-
           </div>
         </Router>
       </div>

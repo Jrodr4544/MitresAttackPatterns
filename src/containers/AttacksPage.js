@@ -31,8 +31,6 @@ class AttacksPage extends Component {
          <Route exact path={match.url} render={() => ( 
            <h3>Select an Attack from the list.</h3> 
          )}/> 
-         <Route path={`${match.url}/:attackId`} component={AttacksShow}/> 
-
         </Switch> 
      </div>
     )
