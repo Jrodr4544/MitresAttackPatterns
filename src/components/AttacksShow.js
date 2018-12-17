@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Panel } from 'react-bootstrap';
+import { Panel, ListGroup, ListGroupItem } from 'react-bootstrap';
 
 const AttacksShow = props => {
 debugger
@@ -9,11 +9,18 @@ debugger
       <div>
         <Panel>
           <Panel.Heading>{ props.attackPattern.name }</Panel.Heading>
-          <Panel.Body className="panelText">{ props.attackPattern.description }</Panel.Body>
+          <Panel.Body className="panelText">{ props.attackPattern.description }
+          <br></br>
+          <br></br>
+          <ListGroup>
+            <ListGroupItem>Detection: {props.attackPattern.x_mitre_detection}</ListGroupItem>
+            <ListGroupItem>Created: {props.attackPattern.created}</ListGroupItem>
+          </ListGroup>
           <h4>References:</h4>
           <ul className="panelText">
             { props.references }
           </ul>
+          </Panel.Body>
         </Panel>
       </div>
     );
