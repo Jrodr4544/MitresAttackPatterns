@@ -4,16 +4,17 @@ import { connect } from 'react-redux';
 import { FormGroup, InputGroup, FormControl, Button } from 'react-bootstrap';
 import AttacksList from '../components/AttacksList';
 
+import DatasourceFilter from '../components/filters/datasourceFilter'
+import PlatformFilter from '../components/filters/platformFilter';
 
-class AttacksFilter extends Component {
+class FilterContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: '',
       description: '',
-      datasourceFilter: null,
-      platformFilter: null,
-      filteredAttacks: props.attackPatterns
+      datasourceFilter: 'all',
+      platformFilter: 'all'
     };
   }
 
@@ -26,24 +27,16 @@ class AttacksFilter extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
     debugger
-    filterAttackPatterns(this.state); // this needs to be a defined function that dispatches to reducer from the actions file
-//    history.push('/pets'); // might need to use this
+//    filterAttackPatterns(this.state); 
+// This should filter the current attackPatterns 
+// based on input
   }
 
-  handleOnClick = event => {
-
-  }
-
-// gotta work on the filter functionality
   handleOnFilterChange = event => {
-    var filter = {[event.target.name]: event.target.value}
-
-    this.setState(
-      filter
-    );
-debugger
-
-    this.props.filterAttackPatterns(filter)
+    this.setState({
+      ...this.state,
+      [event.target.name]: event.target.value
+    });
   }
 
   render() {
@@ -64,31 +57,21 @@ debugger
 
           { this.props.filters.data_sources !== undefined ? (
 
-            <div name="filters"> 
-              <select name="datasourceFilter" onChange={this.handleOnFilterChange} defaultValue='all'>
-                <option value='all'>All</option>
-                  {this.props.filters.data_sources.map(filter =>
-                    <option key={filter} value={filter}>{filter}</option>
-                  )}
-              </select>
-
-              <select name="platformFilter" onChange={this.handleOnFilterChange} defaultValue='all'>
-                <option value='all'>All</option>
-                  {this.props.filters.platforms.map(filter =>
-                    <option key={filter} value={filter}>{filter}</option>
-                  )}
-              </select>
+            <div name='filters'>
+              <DatasourceFilter datasources={this.props.filters.data_sources} changeFilter={this.handleOnFilterChange}/>
+              <PlatformFilter platforms={this.props.filters.platforms} changeFilter={this.handleOnFilterChange}/>
             </div>
 
           ) : (
-
             <div>
               Filters
             </div>
 
           )}
             <br></br>
-        <AttacksList attacks={ this.props.attackPatterns } />
+
+        <AttacksList datasourceFilter={this.state.datasourceFilter} platformFilter={this.state.platformFilter} attacks={ this.props.attackPatterns } />
+
       </div>
     );
   }
@@ -96,10 +79,12 @@ debugger
 
 const mapStateToProps = state => {
  debugger
+ //this.setState({ filteredAttackPatterns: state.attackPatterns })
+
  return {
   attackPatterns: state.attackPatterns,
   filters: state.filters
  };
 }
 
-export default connect(mapStateToProps, { fetchFilters, fetchAttackPatterns, filterAttackPatterns })(AttacksFilter);
+export default connect(mapStateToProps, { fetchFilters, fetchAttackPatterns, filterAttackPatterns })(FilterContainer);
