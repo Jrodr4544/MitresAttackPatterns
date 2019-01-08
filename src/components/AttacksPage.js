@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 
-import FilterContainer from './FilterContainer';
+import FilterContainer from '../containers/FilterContainer';
 
-import AttacksShow from '../components/AttacksShow';
+import AttacksShow from './AttacksShow';
 
 //import logo from '../mitre_attack.png'
 
@@ -18,14 +18,15 @@ class AttacksPage extends Component {
     return (
       <div>
 {/* Attacks Page */}
-      <FilterContainer />
 
         <Switch>  
-         <Route path={`${match.url}/:attackId`} component={AttacksShow}/> 
+         <Route exact path={`${match.url}/:attackId`} component={AttacksShow}/> 
          <Route path={match.url} render={() => ( 
           <h3>Select an Attack from the list.</h3>
          )}/> 
         </Switch> 
+
+      <FilterContainer />
       </div>
     )
   }
