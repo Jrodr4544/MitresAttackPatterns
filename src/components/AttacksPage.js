@@ -10,7 +10,6 @@ import AttacksShow from './AttacksShow';
 
 
 class AttacksPage extends Component {
-//const AttacksPage = ({match}) => {
   render() {
       debugger
     const { match } = this.props;
