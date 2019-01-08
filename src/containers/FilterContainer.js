@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchFilters, fetchAttackPatterns } from '../actions';
+import { fetchAttackPatterns } from '../actions';
 import { connect } from 'react-redux';
 import { FormGroup, InputGroup, FormControl, Button } from 'react-bootstrap';
 import AttacksList from '../components/AttacksList';
@@ -20,12 +20,6 @@ class FilterContainer extends Component {
   componentDidMount() {
       debugger
     this.props.fetchAttackPatterns()
-    this.props.fetchFilters()
-  }
-
-  handleOnSubmit = event => {
-    event.preventDefault();
-    debugger
   }
 
   handleOnFilterChange = event => {
@@ -48,7 +42,7 @@ class FilterContainer extends Component {
 
     return (
       <div>
-        <form> {/* onSubmit={this.handleOnSubmit} > */}
+        <form> 
           <FormGroup>
               <InputGroup>
                   <InputGroup.Button>
@@ -84,9 +78,9 @@ class FilterContainer extends Component {
 const mapStateToProps = state => {
  debugger
  return {
-  attackPatterns: state.attackPatterns,
+  attackPatterns: state.attackPatterns.patterns,
   filters: state.filters
  };
 }
 
-export default connect(mapStateToProps, { fetchFilters, fetchAttackPatterns })(FilterContainer);
+export default connect(mapStateToProps, { fetchAttackPatterns })(FilterContainer);
