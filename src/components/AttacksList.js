@@ -24,12 +24,15 @@ const AttacksList = ({ attacks, datasourceFilter, platformFilter, textFilter }) 
   } 
   
   const renderAttacks = attackPatterns.map( attack => 
-  //const renderAttacks = attacks.map( attack => 
     <PanelGroup accordion id="accordion-example" key={attack.id}>
       <Panel eventKey={attack.id}>
         <Panel.Heading>
           <Panel.Title toggle>
-            { attack.name }
+
+            <Link style={{ marginRight: '12px' }} to={`/attacks`}>
+              { attack.name }
+            </Link>
+
           </Panel.Title>
             <br></br>
         </Panel.Heading>
@@ -43,7 +46,7 @@ const AttacksList = ({ attacks, datasourceFilter, platformFilter, textFilter }) 
   
   return (
     <div>
-        {/* Attacks List */}
+      {/* Attacks List */}
       {renderAttacks}
     </div>
   );
