@@ -8,15 +8,20 @@ debugger
     return (
       <div>
         <Panel>
-          <Panel.Heading>{ props.attackPattern.name }</Panel.Heading>
-          <Panel.Body className="panelText">{ props.attackPattern.description }
+          <Panel.Heading>{ props.name }</Panel.Heading>
+          <Panel.Body className="panelText">{ props.description }
           <br></br>
           <br></br>
           <ListGroup>
-            <ListGroupItem>Detection: {props.attackPattern.x_mitre_detection}</ListGroupItem>
-            <ListGroupItem>Created: {props.attackPattern.created}</ListGroupItem>
+            <ListGroupItem>Detection: { props.x_mitre_detection }</ListGroupItem>
+            <ListGroupItem>Created: { props.created }</ListGroupItem>
           </ListGroup>
-          <h4>References:</h4>
+
+          { props.references !== undefined ? (
+            <h4>References:</h4>
+          ) : (
+            <br></br>
+          )}
           <ul className="panelText">
             { props.references }
           </ul>
@@ -28,15 +33,15 @@ debugger
 
 const mapStateToProps = (state, ownProps) => {
   debugger
-  const attackPattern = state.attackPatterns.find(attack => attack.id === ownProps.match.params.attackId )
+  const attackPattern = state.attackPatterns.patterns.find(attack => attack.id === parseInt(ownProps.match.params.attackId) )
   debugger 
 
-  if (attackPattern) {
+  if (attackPattern.external_references !== undefined) {
     let references = attackPattern.external_references.map( ( reference, index ) => <li key={index}>Source: { reference.source_name } | <a href={ reference.url }>{ reference.url }</a></li> );
 
     return { references, attackPattern }
   } else {
-    return { attackPattern: {} }
+    return attackPattern;
   }
 }
   
