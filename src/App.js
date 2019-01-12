@@ -6,7 +6,8 @@ import {
 
 import NavBar from './components/NavBar';
 import About from './components/About';
-import AttacksPage from './components/AttacksPage';
+// import AttacksPage from './components/AttacksPage';
+import AttackPatternsContainer from './containers/AttackPatternsContainer';
 
 //  Default React stuff
 import logo from './mitre_attack.png';
@@ -18,7 +19,7 @@ class App extends Component {
         <Router>
           <div>
               <NavBar />
-              <Route path='/attacks' component={AttacksPage}/>
+              <Route path='/attacks' component={AttackPatternsContainer}/>
               <Route path='/about' component={About}/>
               <Route exact path="/" render={() => (
                 <div className="App"><h1>Welcome</h1><img className="App-logo" src={logo} alt='171x180' /></div>
