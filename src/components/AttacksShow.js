@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Panel, ListGroup, ListGroupItem } from 'react-bootstrap';
 
 const AttacksShow = props => {
-debugger
+// debugger
 
     return (
       <div>
@@ -32,9 +32,8 @@ debugger
 };
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
+  // debugger
   const attackPattern = state.attackPatterns.patterns.find(attack => attack.id === parseInt(ownProps.match.params.attackId) )
-  debugger 
 
   if (attackPattern.external_references !== undefined) {
     let references = attackPattern.external_references.map( ( reference, index ) => <li key={index}>Source: { reference.source_name } | <a href={ reference.url }>{ reference.url }</a></li> );
