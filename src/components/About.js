@@ -19,9 +19,10 @@ const About = () => {
         <br></br>
         <br></br>
             With the creation of ATT&CK, MITRE is fulfilling its mission to solve problems for a safer world — by bringing communities together to develop more effective cybersecurity. ATT&CK is open and available to any person or organization for use at no charge.
-            <br></br>
-            <br></br>
+        <br></br>
+        <br></br>
         <p>Please visit MITRE for more details: <a href="https://attack.mitre.org/">https://attack.mitre.org/</a></p>
+
           </Panel.Body>
         </Panel>
     </div>
