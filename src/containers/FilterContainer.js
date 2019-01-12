@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { fetchAttackPatterns } from '../actions';
 import { connect } from 'react-redux';
 import { FormGroup, InputGroup, FormControl, Button } from 'react-bootstrap';
-import AttacksList from '../components/AttacksList';
 
 import DatasourceFilter from '../components/filters/datasourceFilter'
 import PlatformFilter from '../components/filters/platformFilter';
@@ -12,33 +10,33 @@ class FilterContainer extends Component {
     super(props);
     this.state = {
       inputFilter: '',
-      datasourceFilter: 'all',
-      platformFilter: 'all'
+      datasourceFilter: '',
+      platformFilter: ''
     };
   }
 
-  componentDidMount() {
-      debugger
-    this.props.fetchAttackPatterns()
-  }
-
   handleOnFilterChange = event => {
+    debugger
     this.setState({
       ...this.state,
       [event.target.name]: event.target.value
+    }, () => {
+      this.props.filterAttackPatterns(this.state);
     });
   }
 
   handleInputChange = event => {
-    debugger
+    // debugger
     this.setState({
       ...this.state,
       inputFilter: event.target.value
+    }, () => {
+      this.props.filterAttackPatterns(this.state);
     });
   }
 
   render() {
-    debugger
+    // debugger
 
     return (
       <div>
@@ -68,19 +66,16 @@ class FilterContainer extends Component {
           )}
             <br></br>
 
-        <AttacksList textFilter={this.state.inputFilter} datasourceFilter={this.state.datasourceFilter} platformFilter={this.state.platformFilter} attacks={ this.props.attackPatterns } />
-
       </div>
     );
   }
 };
 
 const mapStateToProps = state => {
- debugger
+//  debugger
  return {
-  attackPatterns: state.attackPatterns.patterns,
   filters: state.filters
  };
 }
 
-export default connect(mapStateToProps, { fetchAttackPatterns })(FilterContainer);
+export default connect(mapStateToProps)(FilterContainer);
