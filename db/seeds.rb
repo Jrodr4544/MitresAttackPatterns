@@ -10,29 +10,31 @@ data = File.read('./db/enterprise-attack.json')
  attack_patterns = JSON.parse(data)
 
  attack_patterns["objects"].each do |pattern|
-    object = AttackPattern.create!( key: pattern['id'], # Will need to update react front end to reflect this key attribute as the id
-                            created_by_ref: pattern['created_by_ref'],
-                            name: pattern['name'],
-                            description: pattern['description'],
-                            type: pattern['type'],
-                            x_mitre_version: pattern['x_mitre_version'],
-                            x_mitre_detection: pattern['x_mitre_detection'],
-                            modified: pattern['modified'],
-                            created: pattern['created'],
-                            x_mitre_data_sources: pattern['x_mitre_data_sources'],
-                            x_mitre_platforms: pattern['x_mitre_platforms'],
-                            definition: pattern['definition'],
-                            definition_type: pattern['definition_type']
-                          )
-    if pattern['external_references'] != nil
-        pattern['external_references'].each do |reference| 
-            object.external_references << ExternalReference.create!(reference)
+    if pattern['name'] != nil && pattern['x_mitre_data_sources'] && pattern['x_mitre_platforms']
+        object = AttackPattern.create!( key: pattern['id'], # Will need to update react front end to reflect this key attribute as the id
+                                created_by_ref: pattern['created_by_ref'],
+                                name: pattern['name'],
+                                description: pattern['description'],
+                                type: pattern['type'],
+                                x_mitre_version: pattern['x_mitre_version'],
+                                x_mitre_detection: pattern['x_mitre_detection'],
+                                modified: pattern['modified'],
+                                created: pattern['created'],
+                                x_mitre_data_sources: pattern['x_mitre_data_sources'],
+                                x_mitre_platforms: pattern['x_mitre_platforms'],
+                                definition: pattern['definition'],
+                                definition_type: pattern['definition_type']
+                            )
+        if pattern['external_references'] != nil
+            pattern['external_references'].each do |reference| 
+                object.external_references << ExternalReference.create!(reference)
+            end
+        elsif pattern['kill_chain_phases'] != nil
+            pattern['kill_chain_phases'].each do |phase|
+                object.kill_chain_phases << KillChainPhase.create!(phase)
+            end
         end
-    elsif pattern['kill_chain_phases'] != nil
-        pattern['kill_chain_phases'].each do |phase|
-            object.kill_chain_phases << KillChainPhase.create!(phase)
-        end
-    end
 
-    object.save!
+        object.save!
+    end
  end
