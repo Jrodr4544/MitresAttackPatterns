@@ -33,12 +33,16 @@ class AttackPatternsContainer extends Component {
     }
 
     handleFilterAttackPatterns(filter) {
-        debugger
+        // debugger
         // Filter based on data_sources, platforms, and input 
-          const filterPatterns = this.state.attackPatterns.filter( attack => attack.x_mitre_data_sources.includes(filter['datasourceFilter']) || attack.x_mitre_platforms.includes(filter['platformFilter']));
+          const filterPatterns = this.state.attackPatterns.filter( attack => 
+            (attack.x_mitre_data_sources.filter(source => source.includes(filter.datasourceFilter)).length > 0) && 
+            (attack.x_mitre_platforms.filter(platform => platform.includes(filter.platformFilter)).length > 0)
+          );
+
+          // debugger
           const result = filterPatterns.filter( attack => Object.values(attack).flat().join('').includes(filter['inputFilter']) ) ;
 
-          debugger
           return this.setState({
             ...this.state,
             filteredAttackPatterns: result
