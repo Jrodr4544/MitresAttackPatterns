@@ -16,7 +16,7 @@ class FilterContainer extends Component {
   }
 
   handleOnFilterChange = event => {
-    debugger
+    // debugger
     this.setState({
       ...this.state,
       [event.target.name]: event.target.value
