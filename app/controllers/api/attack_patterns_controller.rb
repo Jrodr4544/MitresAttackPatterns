@@ -1,4 +1,4 @@
-class Api::AtttackPatternsController < ApplicationController
+class Api::AttackPatternsController < ApplicationController
 
     def index
         #binding.pry
@@ -8,7 +8,7 @@ class Api::AtttackPatternsController < ApplicationController
 
     def create
         @attack_pattern = AttackPattern.new(attack_pattern_params)
-        
+
     end
 
     private
