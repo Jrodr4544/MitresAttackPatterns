@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181224012618) do
+ActiveRecord::Schema.define(version: 20190129184446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 20181224012618) do
     t.string "object_marking_refs", default: [], array: true
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string "name"
+    t.text "content"
+    t.bigint "attack_pattern_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attack_pattern_id"], name: "index_comments_on_attack_pattern_id"
+  end
+
   create_table "external_references", force: :cascade do |t|
     t.string "external_id"
     t.string "url"
@@ -54,6 +63,7 @@ ActiveRecord::Schema.define(version: 20181224012618) do
     t.index ["attack_pattern_id"], name: "index_kill_chain_phases_on_attack_pattern_id"
   end
 
+  add_foreign_key "comments", "attack_patterns"
   add_foreign_key "external_references", "attack_patterns"
   add_foreign_key "kill_chain_phases", "attack_patterns"
 end
