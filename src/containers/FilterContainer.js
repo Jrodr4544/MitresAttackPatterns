@@ -40,31 +40,31 @@ class FilterContainer extends Component {
 
     return (
       <div>
-        <form> 
+        <form>
           <FormGroup>
-              <InputGroup>
-                  <InputGroup.Button>
-                      <Button type='submit' value="Filter Attack Patterns">Filter Attack Patterns</Button>
-                  </InputGroup.Button>
-                  <FormControl name='inputFilter' value={this.state.inputFilter} type="text" onChange={this.handleInputChange}/>
-              </InputGroup>
+            <InputGroup>
+              <InputGroup.Button>
+                <Button type='submit' value="Filter Attack Patterns">Filter Attack Patterns</Button>
+              </InputGroup.Button>
+              <FormControl name='inputFilter' value={this.state.inputFilter} type="text" onChange={this.handleInputChange} />
+            </InputGroup>
           </FormGroup>
         </form>
 
-          { this.props.filters.data_sources !== undefined ? (
+        {this.props.filters.data_sources !== undefined ? (
 
-            <div name='filters'>
-              <DatasourceFilter datasources={this.props.filters.data_sources} changeFilter={this.handleOnFilterChange}/>
-              <PlatformFilter platforms={this.props.filters.platforms} changeFilter={this.handleOnFilterChange}/>
-            </div>
+          <div name='filters'>
+            <DatasourceFilter datasources={this.props.filters.data_sources} changeFilter={this.handleOnFilterChange} />
+            <PlatformFilter platforms={this.props.filters.platforms} changeFilter={this.handleOnFilterChange} />
+          </div>
 
-          ) : (
+        ) : (
             <div>
               Filters
             </div>
 
           )}
-            <br></br>
+        <br></br>
 
       </div>
     );
@@ -72,10 +72,10 @@ class FilterContainer extends Component {
 };
 
 const mapStateToProps = state => {
-//  debugger
- return {
-  filters: state.filters
- };
+  //  debugger
+  return {
+    filters: state.filters
+  };
 }
 
 export default connect(mapStateToProps)(FilterContainer);
