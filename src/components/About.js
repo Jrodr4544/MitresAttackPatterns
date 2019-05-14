@@ -12,7 +12,7 @@ const About = () => {
           <Panel.Body>
           
         <br></br>
-            The mission for Mitre's Attack Patterns App is to provide user's with an interface to the Enterprise data repository. 
+            The mission for Mitre's Attack Patterns App is to provide users with an interface to the Enterprise data repository. 
         <br></br>
         <br></br>
             MITRE ATT&CK™ is a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations. The ATT&CK knowledge base is used as a foundation for the development of specific threat models and methodologies in the private sector, in government, and in the cybersecurity product and service community.
@@ -28,5 +28,6 @@ const About = () => {
     </div>
     )
 }
+
 
 export default About;
