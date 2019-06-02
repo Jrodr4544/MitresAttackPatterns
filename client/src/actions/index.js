@@ -21,7 +21,7 @@ export const fetchAttackPatterns = () => {
     try {
       dispatch({ type: 'LOADING_ATTACK_PATTERNS' })
 
-      const request = await fetch('/api/attack_patterns');
+      const request = await fetch('api/attack_patterns');
       const attackPatterns = await request.json();
 
       return onSuccess(attackPatterns);
@@ -53,7 +53,7 @@ export const postComment = (comment) => {
     }
 
     try {
-      const request = await fetch('/api/attack_patterns/' + comment.attack_pattern_id + '/add_comment', {
+      const request = await fetch('api/attack_patterns/' + comment.attack_pattern_id + '/add_comment', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
