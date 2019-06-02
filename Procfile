@@ -1,1 +1,1 @@
-web: pwd && ls && cd client && npm start && bundle exec rails server
+web: cd client && npm install && npm start && bundle exec rails server
