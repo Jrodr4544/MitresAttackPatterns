@@ -1,1 +1,1 @@
-web: cd client && npm install && npm run build && ls build/ 
+web: bundle exec rails s
