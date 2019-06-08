@@ -1,4 +1,4 @@
-![#f03c15](https://github.com/Jrodr4544/MitresAttackPatterns/blob/feature/setup-api/client/src/mitre_attack.png) `#f03c15`
+![Mitre_logo](https://github.com/Jrodr4544/MitresAttackPatterns/blob/feature/setup-api/client/src/mitre_attack.png) 
 
 # README
 
