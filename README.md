@@ -1,4 +1,4 @@
-![Mitre_logo](https://github.com/Jrodr4544/MitresAttackPatterns/blob/feature/setup-api/client/src/mitre_attack.png) 
+![Mitre_logo](https://github.com/Jrodr4544/MitresAttackPatterns/blob/feature/setup-api/Mitre_Logo.png) 
 
 # README
 
