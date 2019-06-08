@@ -1,3 +1,9 @@
+
+Please visit https://sheltered-coast-58477.herokuapp.com using the following browsers:
+
+- Chrome
+- Mozilla Firefox
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
