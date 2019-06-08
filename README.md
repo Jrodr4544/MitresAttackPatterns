@@ -1,3 +1,6 @@
+
+![MitreLogo](https://github.com/Jrodr4544/MitresAttackPatterns/blob/feature/setup-api/client/src/mitre_attack.png)
+
 # README
 
 This README would normally document whatever steps are necessary to get the
