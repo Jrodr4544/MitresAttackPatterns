@@ -1,5 +1,4 @@
-
-<div style="background-color:green">![MitreLogo](https://github.com/Jrodr4544/MitresAttackPatterns/blob/feature/setup-api/client/src/mitre_attack.png)</div>
+![#f03c15](https://github.com/Jrodr4544/MitresAttackPatterns/blob/feature/setup-api/client/src/mitre_attack.png) `#f03c15`
 
 # README
 
