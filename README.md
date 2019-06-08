@@ -1,26 +1,9 @@
 ![Mitre_logo](https://github.com/Jrodr4544/MitresAttackPatterns/blob/feature/setup-api/Mitre_Logo.png) 
 
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Please visit https://sheltered-coast-58477.herokuapp.com using the following browsers:
 
-Things you may want to cover:
+-    Chrome
+-    Mozilla Firefox
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
