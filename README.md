@@ -8,3 +8,4 @@ Please visit the application at https://sheltered-coast-58477.herokuapp.com usin
 -    Chrome
 -    Mozilla Firefox
 
+Author: Jelson Rodriguez
